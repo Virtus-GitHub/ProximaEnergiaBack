@@ -1,0 +1,6 @@
+@ProximaEnergia_HostAddress = http://localhost:5089
+
+GET {{ProximaEnergia_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
