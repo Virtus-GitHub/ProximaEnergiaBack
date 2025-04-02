@@ -4,6 +4,6 @@ namespace ProximaEnergia.Interfaces.Services
 {
     public interface IConsumptionRatesService
     {
-        Task<IList<TarifasAcuerdosDTO>> GetAllConsumptionRates();
+        Task<IList<TarifasConsumoDTO>> GetAllConsumptionRates();
     }
 }

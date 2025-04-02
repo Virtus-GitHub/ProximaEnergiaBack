@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Identity.Client;
 using ProximaEnergia.Interfaces.Services;
 using ProximaEnergia.Models;
@@ -12,7 +13,7 @@ namespace ProximaEnergia.Controllers
         private readonly IConsumptionRatesService _service = service;
 
         [HttpGet]
-        public async Task<IEnumerable<TarifasAcuerdosDTO>> GetConsumptionRates()
+        public async Task<IEnumerable<TarifasConsumoDTO>> GetConsumptionRates()
             => await _service.GetAllConsumptionRates();
     }
 }

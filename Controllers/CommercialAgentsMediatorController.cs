@@ -1,4 +1,5 @@
 ﻿using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using ProximaEnergia.Features.Queries.CommercialAgents;
 using ProximaEnergia.Models;

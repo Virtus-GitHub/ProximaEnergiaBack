@@ -4,6 +4,6 @@ namespace ProximaEnergia.Interfaces.Repositories
 {
     public interface IConsumptionRatesRepository
     {
-        Task<List<TarifasAcuerdosDTO>> GetAllConsumptionRatesAsync();
+        Task<List<TarifasConsumoDTO>> GetAllConsumptionRatesAsync();
     }
 }

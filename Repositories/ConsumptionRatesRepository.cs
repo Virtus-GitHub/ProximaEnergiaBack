@@ -11,13 +11,13 @@ namespace ProximaEnergia.Repositories
     {
         private readonly ApplicationDbContext _context = context;
 
-        public async Task<List<Models.TarifasAcuerdosDTO>> GetAllConsumptionRatesAsync()
+        public async Task<List<TarifasConsumoDTO>> GetAllConsumptionRatesAsync()
         {
             try
             {
                 var consumptionRatesList = _context.TarifasConsumos.ToList();
 
-                return await Task.FromResult(consumptionRatesList.Adapt<List<Models.TarifasAcuerdosDTO>>());
+                return await Task.FromResult(consumptionRatesList.Adapt<List<TarifasConsumoDTO>>());
             }
             catch (Exception ex)
             {

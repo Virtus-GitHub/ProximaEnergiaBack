@@ -8,7 +8,7 @@ namespace ProximaEnergia.Services
     {
         private readonly IConsumptionRatesRepository _repository = repository;
 
-        public async Task<IList<TarifasAcuerdosDTO>> GetAllConsumptionRates()
+        public async Task<IList<TarifasConsumoDTO>> GetAllConsumptionRates()
             => await _repository.GetAllConsumptionRatesAsync();
     }
 }

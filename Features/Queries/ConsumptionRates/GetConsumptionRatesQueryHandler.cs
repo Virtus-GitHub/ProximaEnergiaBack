@@ -5,11 +5,11 @@ using ProximaEnergia.Models;
 
 namespace ProximaEnergia.Features.Queries.ConsumptionRates
 {
-    public class GetConsumptionRatesQueryHandler(IConsumptionRatesRepository repository) : IRequestHandler<GetConsumptionRatesQuery, IEnumerable<TarifasAcuerdosDTO>>
+    public class GetConsumptionRatesQueryHandler(IConsumptionRatesRepository repository) : IRequestHandler<GetConsumptionRatesQuery, IEnumerable<TarifasConsumoDTO>>
     {
         private readonly IConsumptionRatesRepository _repository = repository;
 
-        public async Task<IEnumerable<TarifasAcuerdosDTO>> Handle(GetConsumptionRatesQuery request, CancellationToken cancellationToken)
+        public async Task<IEnumerable<TarifasConsumoDTO>> Handle(GetConsumptionRatesQuery request, CancellationToken cancellationToken)
             => await _repository.GetAllConsumptionRatesAsync();
     }
 }

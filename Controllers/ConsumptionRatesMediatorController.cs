@@ -1,4 +1,5 @@
 ﻿using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using ProximaEnergia.Features.Queries.ConsumptionRates;
 using ProximaEnergia.Models;
@@ -10,8 +11,9 @@ namespace ProximaEnergia.Controllers
     public class ConsumptionRatesMediatorController(IMediator mediator) : ControllerBase
     {
         private readonly IMediator _mediator = mediator ?? throw new ArgumentNullException(nameof(_mediator));
+
         [HttpGet]
-        public async Task<IEnumerable<TarifasAcuerdosDTO>> GetConsumptionRates()
+        public async Task<IEnumerable<TarifasConsumoDTO>> GetConsumptionRates()
             => await _mediator.Send(new GetConsumptionRatesQuery());
     }
 }

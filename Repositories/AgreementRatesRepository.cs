@@ -22,8 +22,8 @@ namespace ProximaEnergia.Repositories
                     {
                         IdAcuerdo = item.IdAcuerdo,
                         IdTarifa = item.IdTarifa,
-                        PorcRenovacion = 100, // no estoy seguro de si se calcula o habría que mostrar un input para que lo rellenara el comercial
-                        FechaVigor = DateOnly.FromDateTime(DateTime.Now) // no estoy seguro de si se refiere a esta fecha o a un input a rellenar por el comercial
+                        PorcRenovacion = item.PorcRenovacion.Value,
+                        FechaVigor = item.FechaVigor.Value
                     });
                 }
 
