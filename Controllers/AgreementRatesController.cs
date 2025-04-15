@@ -13,6 +13,7 @@ namespace ProximaEnergia.Controllers
         private readonly IAgreementRatesService _service = service;
 
         [HttpPost]
+        [Authorize]
         public async Task<List<TarifasConsumoDTO>> AddAgreementRates(List<TarifasAcuerdosDTO> agreementRates)
             =>   await _service.AddAgreementRates(agreementRates);
     }

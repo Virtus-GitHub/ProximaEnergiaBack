@@ -13,6 +13,7 @@ namespace ProximaEnergia.Controllers
         private readonly IMediator _mediator = mediator ?? throw new ArgumentNullException(nameof(_mediator));
 
         [HttpPost]
+        [Authorize]
         public async Task<List<TarifasConsumoDTO>> AddAgreementRates(List<TarifasAcuerdosDTO> agreementRates)
             => await _mediator.Send(new AddAgreementRatesCommand(agreementRates));
     }

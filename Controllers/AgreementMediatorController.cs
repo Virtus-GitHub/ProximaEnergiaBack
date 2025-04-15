@@ -16,18 +16,22 @@ namespace ProximaEnergia.Controllers
         private readonly IMediator _mediator = mediator ?? throw new ArgumentNullException(nameof(_mediator));
 
         [HttpGet]
+        [Authorize]
         public async Task<IEnumerable<AcuerdosComercialesDTO>> GetAgreements()
             => await _mediator.Send(new GetAgreementQuery());
 
         [HttpPost]
+        [Authorize]
         public async Task<AcuerdosComercialesDTO> CreateNewAgreement(AcuerdosComercialesDTO agreement)
             => await _mediator.Send(new CreateAgreementCommand(agreement));
 
         [HttpPost]
+        [Authorize]
         public async Task<List<AcuerdosComercialesDTO>> DeleteAgreementList(List<AcuerdosComercialesDTO> agreementList)
             => await _mediator.Send(new DeleteAgreementCommand(agreementList));
 
         [HttpPost]
+        [Authorize]
         public async Task<AcuerdosComercialesDTO> UpdateAgreement(AcuerdosComercialesDTO agreement)
             => await _mediator.Send(new UpdateAgreementCommand(agreement));
     }

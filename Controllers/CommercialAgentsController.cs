@@ -12,6 +12,7 @@ namespace ProximaEnergia.Controllers
         private readonly ICommercialAgentsService _service = service;
 
         [HttpGet]
+        [Authorize]
         public async Task<IEnumerable<AgentesComercialesDTO>> GetAgents()
             => await _service.GetCommercialAgents();
     }

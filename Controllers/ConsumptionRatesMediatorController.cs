@@ -13,6 +13,7 @@ namespace ProximaEnergia.Controllers
         private readonly IMediator _mediator = mediator ?? throw new ArgumentNullException(nameof(_mediator));
 
         [HttpGet]
+        [Authorize]
         public async Task<IEnumerable<TarifasConsumoDTO>> GetConsumptionRates()
             => await _mediator.Send(new GetConsumptionRatesQuery());
     }

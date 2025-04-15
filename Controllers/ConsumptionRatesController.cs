@@ -13,6 +13,7 @@ namespace ProximaEnergia.Controllers
         private readonly IConsumptionRatesService _service = service;
 
         [HttpGet]
+        [Authorize]
         public async Task<IEnumerable<TarifasConsumoDTO>> GetConsumptionRates()
             => await _service.GetAllConsumptionRates();
     }
