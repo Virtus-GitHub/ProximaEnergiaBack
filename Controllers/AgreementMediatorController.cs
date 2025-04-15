@@ -1,4 +1,5 @@
-﻿using MediatR;
+﻿using System.Security.Claims;
+using MediatR;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Cors;
@@ -18,7 +19,14 @@ namespace ProximaEnergia.Controllers
         [HttpGet]
         [Authorize]
         public async Task<IEnumerable<AcuerdosComercialesDTO>> GetAgreements()
-            => await _mediator.Send(new GetAgreementQuery());
+        {
+            string? user = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Email)?.Value;
+
+            if(string.IsNullOrEmpty(user))
+                throw new UnauthorizedAccessException("El token no contiene el nombre del usuario valido.");
+
+            return await _mediator.Send(new GetAgreementQuery(user));
+        }
 
         [HttpPost]
         [Authorize]

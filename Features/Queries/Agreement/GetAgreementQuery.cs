@@ -3,7 +3,8 @@ using MediatR;
 
 namespace ProximaEnergia.Features.Queries.Agreement
 {
-    public class GetAgreementQuery : IRequest<IEnumerable<AcuerdosComercialesDTO>>
+    public class GetAgreementQuery(string user) : IRequest<IEnumerable<AcuerdosComercialesDTO>>
     {
+        public string _user = user;
     }
 }

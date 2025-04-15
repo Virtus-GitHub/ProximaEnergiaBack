@@ -10,14 +10,14 @@ namespace ProximaEnergia.Services
     public class TokenService(IConfiguration configuration) : ITokenService
     {
         private readonly IConfiguration _configuration = configuration;
-        public async Task<string> GetToken()
+        public async Task<string> GetToken(string user)
         {
             var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration.GetSection("api-key").Value));
             var credentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256);
 
             var claims = new[]
             {
-        new Claim(JwtRegisteredClaimNames.Sub, "davidvirtus"),
+        new Claim(JwtRegisteredClaimNames.Email, user),
         new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())
     };
 

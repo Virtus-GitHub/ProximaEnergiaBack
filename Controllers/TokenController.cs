@@ -11,7 +11,7 @@ namespace ProximaEnergia.Controllers
         private readonly ITokenService _service = service;
 
         [HttpGet]
-        public async Task<string> GetToken()
-            => await _service.GetToken();
+        public async Task<string> GetToken(string user)
+            => await _service.GetToken(user);
     }
 }
